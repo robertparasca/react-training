@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAIL } from "../actionTypes";
+import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAIL } from '../actionTypes';
 
 const initialState = {
   posts: [],

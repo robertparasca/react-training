@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POSTS_SUCCESS } from "../actionTypes";
+import { GET_POSTS, GET_POSTS_SUCCESS } from '../actionTypes';
 import { takeEvery, put } from 'redux-saga/effects';
 
 function getPosts() {
