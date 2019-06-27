@@ -1,14 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 
-function ListPosts(props) {
+const ListPosts = () => {
+  const postsState = useSelector((state) => state.posts, shallowEqual);
+
   return (
     <div>
       {
-        props.loading ? 
+        postsState.loading ? 
         'Loading...' :
         <ul>
-          {props.posts.map(post => {
+          {postsState.posts.map((post) => {
             return (<li key={post.id}>{post.title}</li>);
           })}
         </ul>
@@ -17,6 +19,4 @@ function ListPosts(props) {
   );
 }
 
-const mapStateToProps = (state) => ({ ...state.posts });
-
-export default connect(mapStateToProps, null)(ListPosts);
+export default ListPosts;

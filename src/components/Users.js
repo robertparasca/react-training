@@ -1,18 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 
 import { getUsers } from '../redux/actions/users';
 
-function Users(props) {
-  console.log(props)
+const Users = () => {
+  const dispatch = useDispatch();
+  const usersState = useSelector((state) => state.users, shallowEqual);
+
   return (
     <div>
-      <button onClick={props.getUsersHelper}>Get users</button>
+      <button onClick={() => dispatch(getUsers())}>Get users</button>
       <ul>
         {
-          props.loading ? 
+          usersState.loading ? 
           'Loading' :
-          props.users.map((user) => {
+          usersState.users.map((user) => {
             return (<li key={user.name}>{user.name}</li>)
           })
         }
@@ -21,10 +23,4 @@ function Users(props) {
   );
 }
 
-const mapStateToProps = (state) => ({ ...state.users });
-
-const mapDispatchToProps = (dispatch) => ({
-  getUsersHelper: () => dispatch(getUsers())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default Users;

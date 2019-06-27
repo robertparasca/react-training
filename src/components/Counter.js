@@ -1,24 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+
 import { increment, decrement } from '../redux/actions/counter';
 
-function Counter(props) {
+const Counter = () => {
+  const dispatch = useDispatch();
+  const counterState = useSelector((state) => state.counter, shallowEqual);
+
   return (
     <div>
-      <p>The value of the counter is: {props.counter.value}</p>
-      <button onClick={() => props.increment(props.counter.value)}>Click me</button>
-      <button onClick={() => props.decrement(props.counter.value)}>Or me</button>
+      <p>The value of the counter is: {counterState.value}</p>
+      <button onClick={() => dispatch(increment(counterState.value))}>Click me</button>
+      <button onClick={() => dispatch(decrement(counterState.value))}>Or me</button>
     </div>
-  )
+  );
 }
 
-const mapStateToProps = (state) => ({
-  ...state
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  increment: (value) => dispatch(increment(value)),
-  decrement: (value) => dispatch(decrement(value))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default Counter;
