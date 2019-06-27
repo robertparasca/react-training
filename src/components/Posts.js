@@ -13,6 +13,6 @@ const Posts = () => {
       <ListPosts />
     </div>
   );
-}
+};
 
 export default Posts;

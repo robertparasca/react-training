@@ -17,6 +17,6 @@ const ListPosts = () => {
       } 
     </div>
   );
-}
+};
 
 export default ListPosts;

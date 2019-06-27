@@ -21,6 +21,6 @@ const Users = () => {
       </ul>
     </div>
   );
-}
+};
 
 export default Users;

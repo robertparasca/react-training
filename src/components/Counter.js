@@ -14,6 +14,6 @@ const Counter = () => {
       <button onClick={() => dispatch(decrement(counterState.value))}>Or me</button>
     </div>
   );
-}
+};
 
 export default Counter;

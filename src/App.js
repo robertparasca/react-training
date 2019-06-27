@@ -9,7 +9,7 @@ import Posts from './components/Posts';
 import Navbar from './components/Navbar';
 import Users from './components/Users';
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <Router>
@@ -20,6 +20,6 @@ function App() {
       </Router>
     </Provider>
   );
-}
+};
 
 export default App;
