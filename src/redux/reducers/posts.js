@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAIL } from '../actionTypes';
+import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAIL, DELETE_POSTS } from '../actionTypes';
 
 const initialState = {
   posts: [],
@@ -24,6 +24,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false
+      };
+    }
+    case DELETE_POSTS: {
+      return {
+        ...state,
+        posts: []
       };
     }
     default: 

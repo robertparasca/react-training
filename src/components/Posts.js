@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getPosts } from '../redux/actions/posts';
+import { getPosts, deletePosts } from '../redux/actions/posts';
 import ListPosts from './ListPosts';
 
 function Posts(props) {
@@ -9,6 +9,7 @@ function Posts(props) {
   return (
     <div>
       <button onClick={props.getPostsHelper}>Get posts</button>
+      <button onClick={props.deletePostsHelper}>Delete posts</button>
       <ListPosts />
     </div>
   );
@@ -17,7 +18,8 @@ function Posts(props) {
 const mapStateToProps = (state) => ({ ...state.posts });
 
 const mapDispatchToProps = (dispatch) => ({
-  getPostsHelper: () => dispatch(getPosts())
+  getPostsHelper: () => dispatch(getPosts()),
+  deletePostsHelper: () => dispatch(deletePosts())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts);
