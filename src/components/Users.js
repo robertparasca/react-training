@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 
-import { getUsers } from '../redux/actions/users';
+import { getUsers, initUsers } from '../redux/actions/users';
 
 const Users = () => {
   const dispatch = useDispatch();
   const usersState = useSelector((state) => state.users, shallowEqual);
+
+  useEffect(() => {
+    dispatch(initUsers());
+  }, []);
 
   return (
     <div>

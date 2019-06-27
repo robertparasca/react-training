@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
-import { increment, decrement } from '../redux/actions/counter';
+import { increment, decrement, initCounter } from '../redux/actions/counter';
 
 const Counter = () => {
   const dispatch = useDispatch();
   const counterState = useSelector((state) => state.counter, shallowEqual);
+
+  useEffect(() => {
+    dispatch(initCounter())
+  }, []);
 
   return (
     <div>

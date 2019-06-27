@@ -1,4 +1,4 @@
-import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAIL, DELETE_POSTS } from '../actionTypes';
+import { GET_POSTS, GET_POSTS_SUCCESS, GET_POSTS_FAIL, DELETE_POSTS, INIT_POSTS } from '../actionTypes';
 
 const initialState = {
   posts: [],
@@ -32,6 +32,8 @@ export default (state = initialState, action) => {
         posts: []
       };
     }
+    case INIT_POSTS:
+      return initialState;
     default: 
       return state;
   }

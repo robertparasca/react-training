@@ -1,4 +1,4 @@
-import { GET_USERS, GET_USERS_SUCCESS, GET_USERS_FAIL } from '../actionTypes';
+import { GET_USERS, GET_USERS_SUCCESS, GET_USERS_FAIL, INIT_USERS } from '../actionTypes';
 
 const initialState = {
   users: [],
@@ -25,6 +25,9 @@ export default (state = initialState, action) => {
         ...state,
         loading: false
       };
+    }
+    case INIT_USERS: {
+      return initialState;
     }
     default:
       return state;

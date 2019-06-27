@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from '../actionTypes';
+import { INCREMENT, DECREMENT, INIT_COUNTER } from '../actionTypes';
 
 const initialState = {
   value: 0
@@ -17,6 +17,9 @@ export default (state = initialState, action) => {
         ...state,
         value: action.payload
       };
+    }
+    case INIT_COUNTER: {
+      return initialState;
     }
     default: 
       return state;

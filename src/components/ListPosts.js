@@ -1,8 +1,15 @@
-import React from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+
+import { initPosts } from '../redux/actions/posts';
 
 const ListPosts = () => {
+  const dispatch = useDispatch();
   const postsState = useSelector((state) => state.posts, shallowEqual);
+
+  useEffect(() => {
+    dispatch(initPosts());
+  }, []);
 
   return (
     <div>
