@@ -1,23 +1,25 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import store from './redux/store';
 
-import Counter from './components/Counter';
-import Posts from './components/Posts';
 import Navbar from './components/Navbar';
 import Users from './components/Users';
+
+import RootPage from './pages/RootPage';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Router>
+      <BrowserRouter>
         <Navbar />
-        <Route path='/' component={Posts} exact />
-        <Route path='/counter' component={Counter} exact />
-        <Route path='/users' component={Users} exact />
-      </Router>
+        <Route path='/' component={RootPage} exact />
+        <Route path='/login' component={LoginPage} exact />
+        <Route path='/dashboard' component={DashboardPage} exact />
+      </BrowserRouter>
     </Provider>
   );
 };

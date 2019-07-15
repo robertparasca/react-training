@@ -1,15 +1,17 @@
 import React from 'react';
+import { useSelector, shallowEqual } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const authState = useSelector((state) => state.auth, shallowEqual);
   return (
-    <div>
+    <section>
       <ul>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/counter'>Counter</Link></li>
-        <li><Link to='/users'>Users</Link></li>
+        {authState.isAuthenticated ? null : <li><Link to='/login'>Login</Link></li>}
+        {authState.isAuthenticated ? <li><Link to='/requests'>Requests</Link></li> : null}
       </ul>
-    </div>
+    </section>
   );
 };
 
